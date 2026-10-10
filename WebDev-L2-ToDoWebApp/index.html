@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="A premium futuristic To-Do Web App built with HTML, CSS and JavaScript."
+    />
+
+    <title>TaskFlow — Smart To-Do App</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ================================
+         BACKGROUND EFFECTS
+    ================================= -->
+
+    <div class="background">
+      <div class="glow glow-one"></div>
+      <div class="glow glow-two"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <!-- ================================
+         APP CONTAINER
+    ================================= -->
+
+    <div class="app-container">
+      <!-- ============================
+             HEADER
+        ============================= -->
+
+      <header class="top-header">
+        <div class="brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+
+          <div class="brand-text">
+            <h1>TaskFlow</h1>
+            <span>Smart Productivity</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button
+            class="icon-button"
+            id="themeToggle"
+            aria-label="Toggle theme"
+            title="Toggle theme"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <button
+            class="icon-button"
+            id="notificationButton"
+            aria-label="Notifications"
+            title="Notifications"
+          >
+            <i class="fa-regular fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- ============================
+             HERO SECTION
+        ============================= -->
+
+      <section class="hero-section">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i>
+            PRODUCTIVITY DASHBOARD
+          </span>
+
+          <h2>
+            Organize your
+            <span>day.</span>
+            <br />
+            Accomplish more.
+          </h2>
+
+          <p>
+            Plan your tasks, track your progress and stay focused with a smarter
+            way to manage your day.
+          </p>
+        </div>
+
+        <div class="hero-decoration">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+
+          <div class="floating-icon icon-one">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+
+          <div class="floating-icon icon-two">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+
+          <div class="floating-icon icon-three">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================
+             STATISTICS
+        ============================= -->
+
+     <section class="stats-grid">
+
+  <!-- Pending -->
+  <article class="stat-card pending-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-hourglass-half"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Pending Tasks</span>
+      <strong id="pendingCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- Completed -->
+  <article class="stat-card completed-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Completed</span>
+      <strong id="completedCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- Total -->
+  <article class="stat-card total-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-layer-group"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Total Tasks</span>
+      <strong id="totalCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- Progress -->
+  <article class="stat-card progress-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-chart-pie"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Progress</span>
+      <strong id="progressPercentage">0%</strong>
+    </div>
+
+    <div class="progress-mini">
+      <div class="progress-mini-bar" id="progressBar"></div>
+    </div>
+  </article>
+
+
+  <!-- Completion Rate -->
+  <article class="stat-card completion-rate-stat advanced-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-chart-line"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Completion Rate</span>
+      <strong id="completionRate">0%</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- High Priority -->
+  <article class="stat-card high-priority-stat advanced-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-fire"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>High Priority</span>
+      <strong id="highPriorityCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- Due Soon -->
+  <article class="stat-card due-soon-stat advanced-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-clock"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Due Soon</span>
+      <strong id="dueSoonCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+
+  <!-- Categories -->
+  <article class="stat-card categories-stat advanced-stat">
+    <div class="stat-icon">
+      <i class="fa-solid fa-folder-tree"></i>
+    </div>
+
+    <div class="stat-content">
+      <span>Categories</span>
+      <strong id="categoryCount">0</strong>
+    </div>
+
+    <div class="stat-decoration"></div>
+  </article>
+
+</section>
+
+      <!-- ============================
+             ADD TASK
+        ============================= -->
+
+      <section class="task-input-section">
+        <div class="section-heading">
+          <div>
+            <span class="section-label"> CREATE </span>
+
+            <h3>Add a New Task</h3>
+          </div>
+
+         <div class="keyboard-hint">
+    <i class="fa-solid fa-keyboard"></i>
+    <span>Press</span>
+    <kbd>Enter</kbd>
+    <span>to add</span>
+</div>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <!-- Task Input -->
+          <div class="input-wrapper">
+            <i class="fa-solid fa-pen"></i>
+
+            <input
+              type="text"
+              id="taskInput"
+              name="task"
+              placeholder="What needs to be done?"
+              autocomplete="off"
+              maxlength="120"
+            />
+          </div>
+
+          <!-- Priority -->
+          <div class="priority-wrapper">
+            <label for="prioritySelect">
+              <i class="fa-solid fa-bolt"></i>
+              Priority
+            </label>
+
+            <select id="prioritySelect">
+              <option value="low">Low</option>
+
+              <option value="medium" selected>Medium</option>
+
+              <option value="high">High</option>
+            </select>
+          </div>
+
+          <!-- Category -->
+          <div class="priority-wrapper">
+            <label for="categorySelect">
+              <i class="fa-solid fa-folder"></i>
+              Category
+            </label>
+
+            <select id="categorySelect">
+              <option value="work">Work</option>
+
+              <option value="study">Study</option>
+
+              <option value="personal" selected>Personal</option>
+
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Due Date -->
+          <div class="priority-wrapper">
+            <label for="dueDate">
+              <i class="fa-solid fa-calendar-days"></i>
+              Due Date
+            </label>
+
+            <input type="datetime-local" id="dueDate" name="dueDate" />
+          </div>
+
+          <!-- Add Button -->
+          <button type="submit" class="add-task-button" id="addTaskButton">
+            <i class="fa-solid fa-plus"></i>
+
+            <span>Add Task</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- ============================
+             TASK TOOLBAR
+        ============================= -->
+
+      <section class="task-toolbar">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search tasks..."
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-button active" data-filter="all">All</button>
+
+          <button class="filter-button" data-filter="pending">Pending</button>
+
+          <button class="filter-button" data-filter="completed">
+            Completed
+          </button>
+        </div>
+
+        <div class="sort-wrapper">
+          <i class="fa-solid fa-arrow-down-wide-short"></i>
+
+          <select id="sortSelect" class="sort-select">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="priority">Priority: High → Low</option>
+            <option value="dueDate">Due Date: Nearest First</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- ============================
+             TASK BOARD
+        ============================= -->
+
+      <main class="task-board">
+        <!-- ========================
+                 PENDING TASKS
+            ========================= -->
+
+        <section class="task-column pending-column">
+          <div class="column-header">
+            <div class="column-title">
+              <div class="column-icon">
+                <i class="fa-solid fa-list"></i>
+              </div>
+
+              <div>
+                <h3>Pending Tasks</h3>
+
+                <span> Tasks waiting for you </span>
+              </div>
+            </div>
+
+            <span class="task-count" id="pendingBadge"> 0 </span>
+          </div>
+
+          <div class="task-list" id="pendingTasks">
+            <!-- Tasks will be inserted by JavaScript -->
+          </div>
+
+          <!-- Empty State -->
+
+          <div class="empty-state" id="pendingEmpty">
+            <div class="empty-icon">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+
+            <h4>No pending tasks</h4>
+
+            <p>You're all caught up. Add a new task to get started.</p>
+          </div>
+        </section>
+
+        <!-- ========================
+                 COMPLETED TASKS
+            ========================= -->
+
+        <section class="task-column completed-column">
+          <div class="column-header">
+            <div class="column-title">
+              <div class="column-icon">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div>
+                <h3>Completed Tasks</h3>
+
+                <span> Your achievements </span>
+              </div>
+            </div>
+
+            <span class="task-count" id="completedBadge"> 0 </span>
+          </div>
+
+          <div class="task-list" id="completedTasks">
+            <!-- Completed tasks will be inserted by JavaScript -->
+          </div>
+
+          <!-- Empty State -->
+
+          <div class="empty-state" id="completedEmpty">
+            <div class="empty-icon">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h4>No completed tasks yet</h4>
+
+            <p>Complete your first task and watch your progress grow.</p>
+          </div>
+        </section>
+      </main>
+
+      <!-- ============================
+             PRODUCTIVITY FOOTER
+        ============================= -->
+
+      <section class="productivity-section">
+        <div class="productivity-header">
+          <div>
+            <span class="section-label"> PRODUCTIVITY </span>
+
+            <h3>Daily Progress</h3>
+          </div>
+
+          <span id="progressText"> 0 of 0 completed </span>
+        </div>
+
+        <div class="large-progress">
+          <div class="large-progress-bar" id="largeProgressBar"></div>
+        </div>
+
+        <div class="productivity-message">
+          <i class="fa-solid fa-rocket"></i>
+
+          <span id="productivityMessage">
+            Start adding tasks and make today productive.
+          </span>
+        </div>
+      </section>
+
+      <!-- ============================
+             FOOTER
+        ============================= -->
+
+      <footer class="app-footer">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+
+          <span> TaskFlow </span>
+        </div>
+
+        <p>Built with HTML5, CSS3 & JavaScript</p>
+
+        <div class="footer-status">
+          <span class="status-dot"></span>
+
+          <span> All systems operational </span>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ================================
+         NOTIFICATION TOAST
+    ================================= -->
+
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+      <div class="toast-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <div class="toast-content">
+        <strong id="toastTitle"> Success </strong>
+
+        <span id="toastMessage"> Task added successfully. </span>
+      </div>
+
+      <button
+        class="toast-close"
+        id="toastClose"
+        aria-label="Close notification"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
