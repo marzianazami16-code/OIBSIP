@@ -1,0 +1,108 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Your personal AuthNova account dashboard."
+  >
+
+  <title>Dashboard | AuthNova</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-page">
+
+  <header class="dashboard-header">
+    <a class="brand" href="dashboard.html" aria-label="AuthNova home">
+      <span class="brand-mark">A</span>
+      <span class="brand-name">AuthNova</span>
+    </a>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      id="logoutButton"
+    >
+      Log Out
+    </button>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="dashboard-welcome">
+      <span class="eyebrow">YOUR PERSONAL SPACE</span>
+
+      <h1>
+        Welcome back,
+        <span id="dashboardUsername">User</span>
+      </h1>
+
+      <p>
+        You’re signed in to AuthNova. Your personal dashboard
+        is ready for you.
+      </p>
+    </section>
+
+    <section class="dashboard-grid" aria-label="Account overview">
+
+      <article class="dashboard-card">
+        <span class="dashboard-card-icon" aria-hidden="true">✦</span>
+        <h2>Account Status</h2>
+        <p class="dashboard-status">
+          <span class="status-dot"></span>
+          Signed in
+        </p>
+        <p>Your demo account is currently active.</p>
+      </article>
+
+      <article class="dashboard-card">
+        <span class="dashboard-card-icon" aria-hidden="true">◎</span>
+        <h2>Your Profile</h2>
+        <p id="dashboardEmail">Email not available</p>
+        <p>Your account details are shown here.</p>
+      </article>
+
+      <article class="dashboard-card">
+        <span class="dashboard-card-icon" aria-hidden="true">◷</span>
+        <h2>Member Since</h2>
+        <p id="dashboardCreatedAt">Recently joined</p>
+        <p>Your journey with AuthNova starts here.</p>
+      </article>
+
+    </section>
+
+    <section class="dashboard-security">
+      <div>
+        <span class="eyebrow">SECURITY CENTER</span>
+        <h2>Stay mindful of your account</h2>
+        <p>
+          Always log out when using a shared computer.
+          This demonstration stores account information in your browser.
+        </p>
+      </div>
+
+      <span class="security-symbol" aria-hidden="true">◇</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 AuthNova</span>
+    <span>DESIGNED WITH INTENTION</span>
+  </footer>
+
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>
+```
