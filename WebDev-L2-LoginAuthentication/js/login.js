@@ -1,5 +1,4 @@
-```javascript
-"use strict";
+
 
 /* =========================================
    AUTHNOVA — LOGIN & AUTHENTICATION
@@ -253,4 +252,4 @@ if (loginForm) {
     }
   });
 }
-```
+
