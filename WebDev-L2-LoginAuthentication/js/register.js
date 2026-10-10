@@ -1,5 +1,3 @@
-```javascript
-"use strict";
 
 /* AUTHNOVA - REGISTRATION SYSTEM */
 
@@ -252,4 +250,4 @@ if (registerForm) {
     }
   });
 }
-```
+
