@@ -1,5 +1,4 @@
-```javascript
-"use strict";
+
 
 /* =========================================
    AUTHNOVA — DASHBOARD & SESSION GUARD
@@ -113,4 +112,4 @@ if (logoutButton) {
 
 /* Run the dashboard protection check */
 protectDashboard();
-```
+
