@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090914">
+  <meta name="description" content="Create your AuthNova account.">
+  <title>AuthNova | Create Account</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient ambient-three"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="AuthNova home">
+      <span class="brand-mark">A</span>
+      <span>Auth<span class="brand-highlight">Nova</span></span>
+    </a>
+
+    <div class="topbar-right">
+      <span class="status-dot"></span>
+      <span class="status-text">CREATE YOUR ACCOUNT</span>
+    </div>
+  </header>
+
+  <main class="page-layout register-layout">
+    <section class="welcome-panel">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        YOUR NEXT CHAPTER
+      </div>
+
+      <h1>Make space<br>for <span>what's next.</span></h1>
+
+      <p class="welcome-description">
+        Create your AuthNova account and discover a thoughtfully
+        designed digital experience built around you.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-icon">✧</span>
+          <div>
+            <h3>Simple by design</h3>
+            <p>A smooth and focused sign-up experience.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <span class="feature-icon">◈</span>
+          <div>
+            <h3>Your own space</h3>
+            <p>A personal dashboard awaits after sign-in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="decorative-orbit" aria-hidden="true">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-middle"></div>
+        <div class="orbit-core">A<span>N</span></div>
+        <span class="orbit-star star-one">✦</span>
+        <span class="orbit-star star-two">✧</span>
+        <span class="orbit-star star-three">✦</span>
+      </div>
+    </section>
+
+    <section class="auth-area">
+      <div class="auth-card" id="registerCard">
+        <div class="card-top-glow"></div>
+
+        <div class="card-heading">
+          <div class="mini-brand-mark">A</div>
+          <p class="card-kicker">GET STARTED</p>
+          <h2>Create your <span>account</span></h2>
+          <p class="card-subtitle">A few details are all you need to begin.</p>
+        </div>
+
+        <form id="registerForm" novalidate>
+          <div class="form-group">
+            <label for="registerUsername">Username</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">◎</span>
+              <input
+                type="text"
+                id="registerUsername"
+                name="username"
+                placeholder="Choose a username"
+                autocomplete="username"
+                minlength="3"
+                required
+              >
+            </div>
+            <small class="field-error" id="usernameError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="registerEmail">Email address</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">✉</span>
+              <input
+                type="email"
+                id="registerEmail"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+            <small class="field-error" id="emailError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">⌑</span>
+              <input
+                type="password"
+                id="registerPassword"
+                name="password"
+                placeholder="At least 8 characters"
+                autocomplete="new-password"
+                minlength="8"
+                required
+              >
+              <button
+                class="toggle-password"
+                type="button"
+                id="toggleRegisterPassword"
+                aria-label="Show password"
+              >◉</button>
+            </div>
+            <small class="field-error" id="registerPasswordError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">⌑</span>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Enter your password again"
+                autocomplete="new-password"
+                required
+              >
+              <button
+                class="toggle-password"
+                type="button"
+                id="toggleConfirmPassword"
+                aria-label="Show confirmation password"
+              >◉</button>
+            </div>
+            <small class="field-error" id="confirmPasswordError"></small>
+          </div>
+
+          <div class="password-guidance">
+            <span class="guidance-icon">✧</span>
+            <span>Use 8 or more characters and include at least one number.</span>
+          </div>
+
+          <div class="form-message" id="registerMessage" role="status" aria-live="polite"></div>
+
+          <button class="primary-button" type="submit">
+            <span>Create account</span>
+            <span class="button-arrow">↗</span>
+          </button>
+        </form>
+
+        <div class="divider"><span>ALREADY A MEMBER?</span></div>
+
+        <a class="secondary-button" href="index.html">
+          Back to sign in <span>↗</span>
+        </a>
+
+        <div class="card-footer">
+          <span class="footer-lock">◇</span>
+          Your journey starts here
+        </div>
+      </div>
+
+      <p class="below-card-note">
+        Create an account to access your personal dashboard.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 AuthNova</span>
+    <span>DESIGNED WITH INTENTION</span>
+  </footer>
+</body>
+</html>
